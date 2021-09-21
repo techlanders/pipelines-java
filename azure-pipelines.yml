@@ -26,5 +26,5 @@ steps:
     script: |
       # Write your commands here
       
-          echo 'Starting the build'
+          echo 'Starting the build from Github'
           mvn package
