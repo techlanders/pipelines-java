@@ -9,16 +9,7 @@ trigger:
 pool: mypool
 
 steps:
-- task: Maven@3
-  inputs:
-    mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: false
-    testResultsFiles: '**/TEST-*.xml'
-    goals: 'clean package'
+
 - task: Bash@3
   inputs:
     targetType: 'inline'
@@ -26,4 +17,4 @@ steps:
       # Write your commands here
       
           echo 'Starting the build from Github'
-          mvn package
+          touch /tmp/gds
