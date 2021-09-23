@@ -9,23 +9,13 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- task: Maven@3
-  inputs:
-    mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: false
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'clean, package'
+stages:
+- stage: A
+  jobs:
+  - job: A1
+  - job: A2
 
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: |
-      # Write your commands here
-      
-      echo 'Hello world'
-      touch /tmp/gagandeep
+- stage: B
+  jobs:
+  - job: B1
+  - job: B2
